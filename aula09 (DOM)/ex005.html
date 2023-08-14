@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body{
+            background: rgb(14, 14, 75);
+            color: white;
+            font: normal 13pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1> Iniciando estudos DOM </h1>
+    <p> Aqui vai o resultado </p>
+    <p> Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg"> Clique em mim </div><br/>
+    <div name="msg"> Seleção por nome </div><br/>
+    <div class="msg"> Seleção por classe </div><br/>
+    <div class="msg"> Seleção por classe2 </div><br/>
+    <div id="selector"> Seleção por seletor </div><br/>
+    
+    <script>
+        document.write('Configurações do site <br/');
+        window.document.write(document.charset, '<br/><br/>'); // Ou window.document.charset
+        window.document.write(navigator.appName, '<br/><br/>'); // Ou window.navigator.charset
+        window.document.write(navigator.appVersion, '<br/><br/>');
+        window.document.write(navigator.appCodeName, '<br/><br/>');
+        window.document.write(document.URL, '<br/><br/>');
+
+        // Selecionando por marca(tag)
+        let p1 = window.document.getElementsByTagName('p')[0];
+        document.write(`Está escrito assim: ${p1.innerText} <br/><br/>`);
+        p1.style.color = 'red';
+
+        let corpo = window.document.body;
+        //corpo.style.background = 'black';
+
+        let p2 = window.document.getElementsByTagName('p')[1];
+        document.write(`Está escrito assim: ${p2.innerText}`);
+
+
+        //Selecionando por Id
+        let mensagem = document.getElementById('msg');
+        mensagem.style.backgroundColor = 'green';
+        /*
+        mensagem.innerText = 'Modificando Texto';
+        window.document.getElementById('msg').innerText = 'Outra forma de modificar o texto'
+        */
+
+        //Selecionando por Name
+        let mensagem2 = document.getElementsByName('msg')[0];
+        mensagem2.style.color = 'green';
+        mensagem2.style.fontWeight = 'bold';
+        document.getElementsByName('msg')[0].style.backgroundColor = 'pink';
+
+
+        //Selecionando por Classe
+        document.getElementsByClassName('msg')[0].style.backgroundColor = 'brown';
+
+
+        //Selecionando por Seletor
+        let selecao = document.querySelector('div#selector'); // document.querySelector('div.selector'); - se for classe
+        selecao.style.backgroundColor = 'purple';
+    </script>
+
+</body>
+</html>

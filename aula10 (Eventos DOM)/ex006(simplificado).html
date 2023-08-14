@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+
+    <style>
+        div#area{
+            background: rgb(43, 9, 43);
+            color: aliceblue;
+            font: normal 16pt Arial;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px
+        }
+    </style>
+</head>
+<body>
+    <div id="area"> Interaja... </div>
+
+    <script>
+        let area = document.getElementById('area');
+        area.addEventListener('click', eventoClicar)
+        area.addEventListener('mouseenter', entrar)
+        area.addEventListener('mouseout', sair)
+        area.addEventListener('mousedown', segurar)
+
+        function eventoClicar(){
+            let area = document.getElementById('area'); // não precisa dessa linha pq foi definido antes, para poder usar em outros functions também
+            area.innerText = 'Clicou!';
+            area.style.background = 'red';
+        }
+
+        function entrar(){
+            area.innerText = 'Entrou!';
+        }
+
+        function sair(){
+            area.innerText = 'Saiu!';
+            area.style.background = 'rgb(43, 9, 43)';
+        }
+
+        function segurar(){
+            area.innerText = 'Segurou!';
+            area.style.background = 'purple';
+        }
+    </script>
+</body>
+</html>
